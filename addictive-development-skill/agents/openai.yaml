@@ -1,4 +1,4 @@
 interface:
-  display_name: "the operator Addictive Development Skill"
+  display_name: "Addictive Development Skill"
   short_description: "Ethical engagement for better task completion"
   default_prompt: "Use $addictive-development-skill to design an ethical, accessible engagement loop that helps users finish tasks without dark patterns."

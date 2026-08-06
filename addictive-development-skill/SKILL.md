@@ -3,7 +3,7 @@ name: addictive-development-skill
 description: Design ethical, accessible engagement loops that make task completion satisfying and repeatable without dark patterns, gambling mechanics, coercive notifications, or exploitative variable rewards. Use when designing Board.io, 2DO, Vibe/Orbit, Hermes, or other apps where progress visibility, motivation, completion flow, onboarding, retention, or humane feedback needs improvement.
 ---
 
-# the operator Addictive Development Skill
+# Addictive Development Skill
 
 ## Purpose
 

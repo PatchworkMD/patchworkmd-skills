@@ -1,6 +1,6 @@
-# the operator Addictive Development Skill
+# Addictive Development Skill
 
-PatchworkMD candidate for ethical, accessible task-completion design. The name preserves the operator’s internal shorthand; the implementation explicitly rejects gambling mechanics, coercion, dark patterns, and compulsive-use optimization.
+PatchworkMD skill for ethical, accessible task-completion design. The implementation explicitly rejects gambling mechanics, coercion, dark patterns, and compulsive-use optimization.
 
 Highlights:
 

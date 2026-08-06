@@ -10,7 +10,7 @@ Reuse these canonical skills instead of downloading or bulk-installing overlappi
 | Task truth | `task-manager`, `kanban-task-execution` | Durable task state and Hermes queue diagnosis |
 | Hermes | `hermes-agent`, `hermes-architecture-scaffolding` | Profiles, gateway, extension boundaries |
 | Record/replay | `record-replay`, `record-and-replay` | Existing canonical replay behavior; check overlap before packaging |
-| Routing | `PatchworkMD-smart-model-router`, `PatchworkMD-sol-operating-guide` | Local route selection and approval boundaries |
+| Routing | Existing model router and approval policy | Local route selection and approval boundaries |
 | Release | `github-repo-management`, `packaging-notarization`, `skill-creator` | Candidate package and validation |
 
-Integration rule: load only the smallest relevant set, preserve `approveHere`, keep approval and activation separate, and do not alter live routing or publish as a side effect of packaging.
+Integration rule: load only the smallest relevant set, preserve configured approval controls, keep approval and activation separate, and do not alter live routing or publish as a side effect of packaging.
