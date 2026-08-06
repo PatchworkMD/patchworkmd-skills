@@ -1,13 +1,14 @@
 # Funding for 2DO — Apple Developer account ($99/yr)
 #
 # GitHub reads this file on public repos and shows a Sponsor button.
-# Replace the placeholder usernames once your accounts exist:
+# Only platforms with REAL created accounts are listed. Unset = hidden.
 #
-# 1. GitHub Sponsors: enable at https://github.com/sponsors (needs Stripe/PayPal + bank)
-# 2. Ko-fi:        create at https://ko-fi.com  (free, instant)
-# 3. Buy Me a Coffee: https://www.buymeacoffee.com (free, instant)
+# Status as of 2026-08-06:
+# - GitHub Sponsors: NOT ENABLED yet (needs Stripe/PayPal + bank verification).
+#   The handle `patchworkmd` is real; the Sponsor button will appear once
+#   https://github.com/sponsors/PatchworkMD is activated.
+# - Ko-fi:            NOT CREATED yet. Account not live.
+# - Buy Me a Coffee:  NOT CREATED yet. Account not live.
 #
-# Only set the platform(s) you have actually created. Unset = hidden.
+# Do NOT set a platform below until the account exists and receives funds.
 github: [patchworkmd]
-ko_fi: your-ko-fi-username
-buy_me_a_coffee: your-bmc-username
