@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ethical Task Engagement"
+  short_description: "Healthy motivation and completion loops"
+  default_prompt: "Use $ethical-task-engagement to turn a workflow into a motivating, accessible, user-controlled completion loop."

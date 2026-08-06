@@ -1,0 +1,4 @@
+interface:
+  display_name: "Record & Replay"
+  short_description: "Teach Hermes a desktop workflow by demonstration"
+  default_prompt: "Record, inspect, convert, or replay a demonstrated desktop workflow safely."

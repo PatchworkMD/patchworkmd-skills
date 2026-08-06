@@ -1,0 +1,4 @@
+interface:
+  display_name: "PatchworkMD Skill Release"
+  short_description: "Package skills for safe open source release"
+  default_prompt: "Use $patchworkmd-skill-release to prepare a reviewable, branded skill release package without publishing it."
