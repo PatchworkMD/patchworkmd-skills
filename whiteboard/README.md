@@ -26,7 +26,7 @@ video generation.
   was removed.
 
 ## Provenance
-- Author: PatchworkMD (first-party; originally PatchworkMD).
+- Author: PatchworkMD (first-party).
 - Pipeline verified on macOS: Kokoro sherpa-onnx 1.13.4, ffmpeg 8.1,
   PIL-rendered scenes. Dependencies: ffmpeg, sherpa-onnx, numpy, a local
   Kokoro ONNX model dir. All local.
@@ -44,4 +44,4 @@ video generation.
   (mean -27 dB) and produced a 2.5-minute MP4 with AAC audio (2026-08-06).
 
 ## License
-MIT — see `LICENSE`. Cleared by the operator 2026-08-06.
+MIT — see `LICENSE`. Cleared by the repository maintainer on 2026-08-06.

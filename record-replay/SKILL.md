@@ -1,6 +1,6 @@
 ---
 name: record-replay
-description: Record a demonstrated macOS desktop workflow with Cua Driver, inspect the local trace, turn it into an editable Hermes skill, or replay it with explicit approval. Use when the operator says record this, learn this workflow, replay a workflow, or turn a demonstration into a skill.
+description: Record a demonstrated macOS desktop workflow with Cua Driver, inspect the local trace, turn it into an editable Hermes skill, or replay it with explicit approval. Use when the operator asks to record, learn, replay, or convert a demonstrated workflow into a skill.
 metadata:
   hermes:
     tags: [computer-use, workflow, recording, replay, skills]
@@ -27,9 +27,9 @@ To publish:
 ```bash
 hermes skills publish ~/.hermes/skills/record-replay
 ```
-Or add to a GitHub tap repo (`github.com/PatchworkMD/hermes-skills`) and others can install via `hermes skills tap add`.
+Or add to an approved GitHub tap repository so others can install it via `hermes skills tap add`.
 
-the operator must manually approve before publishing — do not publish autonomously.
+The repository maintainer must manually approve before publishing — do not publish autonomously.
 
 ## Commands
 
@@ -64,10 +64,10 @@ When `--video` is supplied, the recorder also captures a screen‑recorded MP4 (
 5. Build the editable skill: `record-replay build WORKFLOW_NAME`
 6. Inspect `SKILL.md` plus `references/actions.md`.
 7. Replace brittle coordinate actions with semantic instructions when possible.
-8. Replay only in the intended app and state, with the operator watching the first run.
+8. Replay only in the intended app and state, with the operator supervising the first run.
 
 ### Mode 2: Observational Learning for Browser Use Training
-1. the operator performs actions on screen as an explanation (manual demonstration).
+1. The operator performs actions on screen as an explanation (manual demonstration).
 2. Start: `record-replay start WORKFLOW_NAME --training-mode browser-use`
 3. The system captures element selectors, DOM paths, interaction patterns, decision points, branching logic, and expected outcomes.
 4. Stop: `record-replay stop`

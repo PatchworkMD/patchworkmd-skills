@@ -4,7 +4,7 @@ Status: PROPOSED — NOT FINAL
 
 - Proposed license: **MIT** (permissive, fits a lightweight utility skill).
 - No copied third-party source is included, so no upstream license constraints apply.
-- Final license selection requires the operator's approval before any publication.
+- Final license selection requires explicit maintainer approval before any publication.
 
 Do not publish until this decision is approved and the license file is added to the package.
 
@@ -13,5 +13,5 @@ Do not publish until this decision is approved and the license file is added to 
 
 ## Publication clearance
 
-- **Status: CLEARED FOR PUBLICATION (MIT)** — approved by the operator 2026-08-06.
+- **Status: CLEARED FOR PUBLICATION (MIT)** — approved by the repository maintainer on 2026-08-06.
 - License: MIT (see `LICENSE` in this package).

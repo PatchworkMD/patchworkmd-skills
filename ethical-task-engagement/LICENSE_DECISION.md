@@ -9,5 +9,5 @@ No license has been selected. Publication remains gated on PatchworkMD review.
 
 ## Publication clearance
 
-- **Status: CLEARED FOR PUBLICATION (MIT)** — approved by the operator 2026-08-06.
+- **Status: CLEARED FOR PUBLICATION (MIT)** — approved by the repository maintainer on 2026-08-06.
 - License: MIT (see `LICENSE` in this package).
