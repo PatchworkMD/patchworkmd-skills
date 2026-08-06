@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fund 2DO — Apple Developer Account</title>
+<!-- Hallmark · macrostructure: Workbench · tone: utilitarian · anchor hue: cool green -->
+<style>
+:root {
+  --color-paper: oklch(97% 0.01 150);
+  --color-ink: oklch(22% 0.02 150);
+  --color-accent: oklch(52% 0.13 155);
+  --color-accent-ink: oklch(99% 0.005 150);
+  --color-rule: oklch(88% 0.02 150);
+  --font-display: "Outfit", "Avenir Next", system-ui, sans-serif;
+  --font-body: "Avenir Next", system-ui, sans-serif;
+  --space-sm: 8px; --space-md: 16px; --space-lg: 32px; --space-xl: 64px;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: clip; }
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: var(--space-xl) var(--space-lg); }
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-style: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.lede {
+  margin-top: var(--space-md);
+  font-size: 1.1rem;
+  max-width: 58ch;
+  color: oklch(38% 0.02 150);
+}
+.card {
+  margin-top: var(--space-lg);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  background: oklch(99% 0.005 150);
+}
+.row { display: flex; justify-content: space-between; gap: var(--space-md); align-items: baseline; }
+.row + .row { margin-top: var(--space-sm); }
+.row .k { color: oklch(45% 0.02 150); }
+.row .v { font-family: var(--font-display); font-weight: 650; }
+.bar {
+  margin-top: var(--space-md);
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-rule);
+  overflow: hidden;
+}
+.bar > i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--color-accent);
+}
+.note { margin-top: var(--space-sm); font-size: 0.9rem; color: oklch(50% 0.02 150); }
+.cta {
+  display: inline-block;
+  margin-top: var(--space-lg);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.05rem;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), filter 0.16s;
+}
+.cta:hover { filter: brightness(1.05); }
+.cta:active { transform: translateY(1px) scale(0.98); }
+.cta:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+.foot { margin-top: var(--space-xl); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); font-size: 0.85rem; color: oklch(50% 0.02 150); }
+.foot a { color: var(--color-ink); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="eyebrow">2DO · local-first task app</p>
+  <h1>Help 2DO fund its own Apple Developer account.</h1>
+  <p class="lede">2DO is free, local-first, and open source. To put it on TestFlight and the App Store — and bring widgets back — it needs a paid Apple Developer Program membership: $99 a year. No company, no VC. Just the people who use it.</p>
+
+  <div class="card">
+    <div class="row"><span class="k">Annual Apple Developer Program</span><span class="v">$99</span></div>
+    <div class="row"><span class="k">What it unlocks</span><span class="v">TestFlight · App Store · widgets</span></div>
+    <div class="row"><span class="k">Raised so far</span><span class="v" id="raised">—</span></div>
+    <div class="bar"><i id="barfill"></i></div>
+    <p class="note" id="note">Set the raised amount in the source, or wire a live source.</p>
+  </div>
+
+  <a class="cta" href="https://ko-fi.com/" target="_blank" rel="noopener">Donate on Ko-fi →</a>
+  <p class="foot">Open source on GitHub under <a href="https://github.com/PatchworkMD/patchworkmd-skills">PatchworkMD</a>. Every dollar goes to the membership; the app stays free.</p>
+</main>
+<script>
+// Edit this to the live number, or hook a webhook/sheet later.
+const RAISED = 0;
+document.getElementById('raised').textContent = '$' + RAISED;
+document.getElementById('barfill').style.width = Math.min(100, (RAISED / 99) * 100) + '%';
+document.getElementById('note').textContent = RAISED >= 99
+  ? 'Goal met — next year\'s renewal is funded.'
+  : 'Goal: $99. ' + (99 - RAISED) + ' to go.';
+</script>
+</body>
+</html>
