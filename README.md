@@ -6,7 +6,7 @@ Open-source skill collection from PatchworkMD. MIT licensed.
 
 | Skill | Purpose |
 |---|---|
-| `addictive-development-skill` | Ethical engagement and task-completion design |
+| `addictive-development-skill` | Make productive action compelling through ethical completion loops |
 | `ethical-task-engagement` | Small reusable completion-loop patterns |
 | `patchworkmd-skill-release` | Safe packaging and provenance workflow for skill releases |
 | `record-replay` | Hermes/Codex record-and-replay behavior |

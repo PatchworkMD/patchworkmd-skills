@@ -1,17 +1,18 @@
 ---
 name: addictive-development-skill
-description: Design ethical, accessible engagement loops that make task completion satisfying and repeatable without dark patterns, gambling mechanics, coercive notifications, or exploitative variable rewards. Use when designing Board.io, 2DO, Vibe/Orbit, Hermes, or other apps where progress visibility, motivation, completion flow, onboarding, retention, or humane feedback needs improvement.
+description: Design ethical, accessible product loops that make productive action—starting, making progress, and finishing—compelling and repeatable. Use when task and project apps need lower start friction, visible momentum, satisfying completion, and healthy return cues. Never use it to intensify gambling, compulsive consumption, doom-scrolling, or other harmful behavior.
 ---
 
 # Addictive Development Skill
 
 ## Purpose
 
-Translate behavioral-design research into healthy product mechanics. Treat “addictive” as “easy to return to and satisfying to finish,” never as loss of control. Preserve user agency, privacy, accessibility, and a clear stopping point.
+Make productivity itself the rewarding loop. Help users start useful work, sustain momentum, finish truthfully, and stop cleanly. Treat “addictive” as “compelling to begin and satisfying to complete,” never as loss of control. Do not make consumption or degenerative behavior more compulsive. Preserve user agency, privacy, accessibility, and a clear stopping point.
 
 ## Non-negotiable guardrails
 
 - Do not use gambling-like variable rewards, loot-box logic, deceptive defaults, artificial scarcity, fear of loss, shame, punitive streak resets, or notification pressure.
+- Do not apply these mechanics to gambling, doom-scrolling, compulsive shopping, substance use, or other harmful behavior.
 - Do not optimize for time-in-app, compulsive checking, or engagement at the expense of the user’s stated goal.
 - Do not target children or vulnerable users with persuasive mechanics.
 - Make reminders, sound, motion, streaks, and data collection controllable and off by default when not necessary.
@@ -23,7 +24,7 @@ Translate behavioral-design research into healthy product mechanics. Treat “ad
 
 1. Define the user’s real outcome, time available, and healthy stopping condition.
 2. Inventory the existing product and canonical skills before adding anything. Prefer `design-taste-frontend`, `stitch-design-taste`, `accessibility-and-inclusive-visualization`, `codebase-design`, `testing-strategy`, `task-manager`, `hermes-agent`, and `record-replay` where they fit.
-3. Map the completion journey: choose → start → work → feedback → finish → reflect → stop.
+3. Map the productivity journey: choose → start → focused work → visible progress → finish → reflect → stop.
 4. Add the smallest set of mechanics that improves clarity or momentum. Prefer visible progress, one next action, previews, forgiving recovery, meaningful defaults, and user-chosen rewards.
 5. Specify accessibility and safety behavior before implementation: keyboard path, screen-reader labels, contrast, reduced motion, dyslexia-friendly copy, quiet hours, and recovery.
 6. Define success using completion quality, time-to-first-action, abandonment reasons, error recovery, opt-out rate, and self-reported usefulness. Do not use raw session length as the primary success metric.
@@ -32,6 +33,7 @@ Translate behavioral-design research into healthy product mechanics. Treat “ad
 
 ## Preferred engagement mechanics
 
+- **Low start friction:** turn intention into one useful action that can begin now.
 - **Progress clarity:** show remaining work, completed work, dependencies, and the next concrete action.
 - **Immediate truthful feedback:** confirm what changed, why it matters, and how to undo it.
 - **Small wins:** split large tasks into meaningful, user-approved steps without hiding total scope.

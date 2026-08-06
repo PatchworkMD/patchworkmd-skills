@@ -1,6 +1,6 @@
 # Addictive Development Skill
 
-PatchworkMD skill for ethical, accessible task-completion design. The implementation explicitly rejects gambling mechanics, coercion, dark patterns, and compulsive-use optimization.
+PatchworkMD skill for making productive action compelling and task completion satisfying. The implementation explicitly rejects gambling mechanics, coercion, dark patterns, harmful consumption loops, and compulsive-use optimization.
 
 Highlights:
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Addictive Development Skill"
-  short_description: "Ethical engagement for better task completion"
-  default_prompt: "Use $addictive-development-skill to design an ethical, accessible engagement loop that helps users finish tasks without dark patterns."
+  short_description: "Make productive action satisfying and repeatable"
+  default_prompt: "Use $addictive-development-skill to make starting, progressing, and finishing productive work compelling without dark patterns or harmful compulsive mechanics."
