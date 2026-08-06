@@ -1,0 +1,15 @@
+{
+  "title": "Example — Technical Explainer",
+  "width": 1024,
+  "height": 576,
+  "fps": 24,
+  "narration": "narration.wav",
+  "scenes": [
+    {"image": "scenes/01-system-map.png", "duration": 12},
+    {"image": "scenes/02-front-door.png", "duration": 10},
+    {"image": "scenes/03-routing.png", "duration": 10},
+    {"image": "scenes/04-orchestration.png", "duration": 12},
+    {"image": "scenes/05-memory-secrets-bus.png", "duration": 10},
+    {"image": "scenes/06-status-roadmap.png", "duration": 10}
+  ]
+}

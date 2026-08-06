@@ -1,0 +1,13 @@
+name: whiteboard
+description: Use when creating a whiteboard-style explainer video from a scene list, local narration, and deterministic ffmpeg rendering.
+agents:
+  - codex
+  - hermes
+  - claude
+  - opencode
+tools:
+  - image_generate
+  - vision_analyze
+  - terminal
+  - read_file
+  - write_file
