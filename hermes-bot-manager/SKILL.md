@@ -2,7 +2,7 @@
 name: hermes-bot-manager
 description: Use when managing Hermes bots, routines, and groups.
 version: 1.0.0
-author: Austin Wise
+author: PatchworkMD
 license: MIT
 tags:
   - hermes
