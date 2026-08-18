@@ -11,6 +11,7 @@ Open-source skill collection from PatchworkMD. MIT licensed.
 | `patchworkmd-skill-release` | Safe packaging and provenance workflow for skill releases |
 | `record-replay` | Hermes/Codex record-and-replay behavior |
 | `whiteboard` | Local-first whiteboard explainer pipeline |
+| `hermes-bot-manager` | Manage Hermes bots, routines, groups, and Bot Chat |
 
 ## License
 

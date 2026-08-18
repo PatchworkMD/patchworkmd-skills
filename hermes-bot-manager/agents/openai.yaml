@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hermes Bot Manager"
+  short_description: "Manage Hermes bots, routines, groups, and Bot Chat"
+  default_prompt: "Create, edit, or verify Hermes bot profiles, routines, groups, and Bot Chat configuration."
