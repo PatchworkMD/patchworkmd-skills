@@ -1,13 +1,15 @@
 ---
 name: hermes-bot-manager
-description: Use when managing Hermes bots, routines, and groups.
-version: 1.0.0
+description: Use when managing Hermes Bot Mode, profiles, routines, groups, or Bot Chat.
+version: 1.1.0
 author: PatchworkMD
 license: MIT
 tags:
   - hermes
   - bots
-  - automation
+  - bot-mode
+  - profiles
+  - cron
   - desktop
 related_skills:
   - austin-smart-model-router
@@ -16,85 +18,226 @@ related_skills:
 
 # Hermes Bot Manager
 
-Use this when the work is creating, editing, or operating Hermes bots and their routines, chat, or groups. A bot is just a Hermes profile; Bot Mode is the desktop UI over it.
+Manage Hermes Bot Mode from the desktop or CLI without inventing a second
+control plane.
 
-## When to Use
+The Nous documentation describes Bot Mode this way: **“Bot Mode turns your
+Hermes profiles into a roster of named Bots.”** It also says: **“There is no
+new primitive to learn: a Bot is a Hermes profile.”** Bot Mode is a UI over the
+profile primitive. Use the profile, chat, cron, and peer commands that already
+exist instead of creating replacement state.
 
-- Create, edit, or manage Hermes bot profiles
-- Set up bot routines, groups, or multi-machine roster entries
-- Translate Bot Mode UI actions into CLI equivalents
-- Verify bot configuration after changes
+## Official documentation
 
-## Setup
+Use these as the source of truth when this skill and the installed Hermes
+version differ:
 
-1. Create the profile.
-2. Set identity fields.
-3. Attach skills, toolsets, MCPs, and model pin.
-4. Add routines as cron jobs.
-5. Verify with CLI parity checks.
+- [Bot Mode: A Roster of Agents](https://hermes-agent.nousresearch.com/docs/user-guide/bot-mode)
+- [Desktop App](https://hermes-agent.nousresearch.com/docs/user-guide/desktop)
+- [Profile Commands](https://hermes-agent.nousresearch.com/docs/reference/profile-commands)
+- [CLI Commands](https://hermes-agent.nousresearch.com/docs/reference/cli-commands)
+- [Cron](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron)
 
-### Create
+The docs state that Bot Mode ships built into the desktop app and is on by
+default. It does not require a separate Bot Mode install. This skill adds an
+operator workflow and command vocabulary; it does not patch Hermes core.
+
+## Skill subcommands
+
+These are routing modes for this skill. They are not new Hermes CLI commands.
+When a user starts with one, perform that slice and verify the result before
+moving to another.
+
+```text
+/bot-manager overview [bot]
+/bot-manager create <name>
+/bot-manager inspect <name>
+/bot-manager routine <bot> <schedule> <task>
+/bot-manager group <group> [bot ...]
+/bot-manager message <bot> <text>
+/bot-manager peer add <name> <url>
+/bot-manager peer list
+/bot-manager peer dm <peer>[/<agent>] <text>
+/bot-manager peer remove <name>
+/bot-manager verify <bot>
+/bot-manager disable
+```
+
+If the user says “bot manager” without a subcommand, start with `overview`
+and ask only for the missing bot name or intended operation. Do not create a
+profile, routine, group, peer, or external message from an ambiguous request.
+
+## `overview`
+
+Explain the parity between Bot Mode and the CLI:
+
+| Bot Mode | CLI / filesystem |
+| --- | --- |
+| Chat with a Bot | `hermes -p <bot> chat` |
+| Bot files, skills, memory | `~/.hermes/profiles/<bot>/` |
+| Routines | `hermes cron list`, filtered to `[bot:<name>] ...` |
+| Create / inspect profiles | `hermes profile create`, `hermes profile list` |
+| Bot-to-bot DM | `hermes -p <bot> chat --in ~ -c "Bot Chat" --create-if-missing -Q -q "Message from 🤖 <sender> (@<sender>): ..."` |
+| Cross-machine Bot-to-bot DM | `hermes peer dm <peer>[/<agent>] "message"` |
+
+A Bot has its own role, model, memory, skills, avatar, and canonical Bot Chat.
+The canonical Bot Chat is persistent. In that chat, `/new` and `/reset` are
+rerouted to `/compact`; regular sessions keep their normal `/new` behavior.
+
+## `create <name>`
+
+Use the desktop **New Agent** flow or the CLI equivalent:
 
 ```bash
 hermes profile create <name>
 hermes profile list
 ```
 
-### Edit
+The documented quick path is **Name, Title, Description**. The Advanced
+surface can clone an existing profile or create a fresh one, pin a model and
+provider, set a custom `SOUL.md`, and enable specific skills, toolsets, and MCP
+servers. With multiple registered connections, **Create on** chooses the
+machine that owns the profile.
+
+After creating a Bot, verify that its canonical Bot Chat exists:
 
 ```bash
-hermes -p <name> chat --in ~ -c "Bot Chat" --create-if-missing -Q -q "Edit profile"
+hermes -p <name> chat
 ```
 
-Or edit directly:
-- `~/.hermes/profiles/<name>/config.yaml`
-- `~/.hermes/profiles/<name>/SOUL.md`
-- `~/.hermes/profiles/<name>/skills/`
+Do not edit the default profile when the requested Bot has a different name.
+Do not copy credentials into a new profile. Hermes profile paths are private;
+never put them in public copy.
 
-### Identity
+## `inspect <name>`
 
-Set avatar, title, and description in the profile metadata. The desktop roster shows avatar, latest preview, and timestamp. Right-click a Bot to duplicate or delete it.
-
-## Routines
-
-Use the cron system with the namespace `[bot:<name>] <routine>`.
+Read the existing profile before changing it. Inspect only the requested
+profile's config, identity, skills, routines, and latest Bot Chat state.
 
 ```bash
-hermes cron list | grep '\[bot:<name>\]'
+hermes profile list
+hermes -p <name> chat
+hermes cron list
 ```
 
-Runs land in the Bot's canonical chat. For advanced behavior, use:
-- `monitor_script` or `monitor_url` for change detection
-- `continuity` for incremental work across runs
-- `deliver` for routing output
+The desktop profile editor is the documented place to change avatar, title,
+description, model pin, skills, toolsets, MCP servers, and `SOUL.md`. Direct
+file edits are a fallback for local maintenance, not a reason to create a
+second profile or rewrite unrelated settings.
 
-## Groups
+## `routine <bot> <schedule> <task>`
 
-Right-click a Bot → Move to group. Group chats are 2–6 bots. Open chat on the group header to create a shared room. Ungrouped bots stay on top; groups are alphabetical; empty groups disappear.
+The Bot Mode docs define routines as plain Hermes cron jobs namespaced:
 
-## Bot-to-bot messaging
+```text
+[bot:<name>] <routine>
+```
 
-Use `@name` in any Bot Chat. The canonical Bot Chat receives the bot protocol when `agent.bot_mode_protocol` is true in `config.yaml`. Delivery is per-invocation; the receiving bot picks it up on next run.
+Create or edit the routine through the Routines pane or the cron system. Verify
+with:
 
-## Multi-machine
+```bash
+hermes cron list
+```
 
-Register multiple connections in Settings → Connections. New Agent dialog shows Create on when more than one connection exists. Remote bots show as `@name-device`. Clicking a Connections Bot does not switch your window; message or group chat instead.
+The run lands in the Bot's own chat history. For change-driven routines, the
+cron model supports `monitor_script` or `monitor_url`; for incremental work,
+use `continuity`; for routing output, use `deliver`. Keep one routine per
+actual recurring behavior. Do not create duplicate schedules to simulate
+progress.
 
-## Turn off
+## `group <group> [bot ...]`
 
-Bot Mode is a desktop plugin. Disable in Settings → Plugins → Bots. Profiles, sessions, and cron jobs remain intact.
+Use the desktop roster: right-click a Bot, choose **Move to group**, then open
+the group header to create a shared room. The documented group-chat limits are
+2–6 Bots, up to three serial rounds, and ten messages per send. Bots may be
+silent when they have nothing new to add. Use `@name` mentions to scope a turn.
 
-## Verification
+A group member keeps its own persistent `Group: <name>` session. Groups can
+span registered machines; use the disambiguated `@name-device` handle when
+needed. Do not make a second group-chat daemon or bus.
 
-Before claiming completion, verify:
-- `hermes profile list` shows the bot
-- `hermes -p <bot> chat` opens the expected agent
-- `hermes cron list` shows routine jobs named `[bot:<bot>] ...`
-- Bot Chat delivers routine results
+## `message <bot> <text>`
+
+For a local Bot Chat, use the documented CLI shape:
+
+```bash
+hermes -p <bot> chat --in ~ -c "Bot Chat" --create-if-missing -Q -q "Message from 🤖 <sender> (@<sender>): <text>"
+```
+
+In a Bot Chat, `@name` hands work to another Bot. Delivery is per-invocation:
+the receiving Bot picks the message up the next time it runs. Live interruption
+of a Bot mid-conversation is not implied.
+
+The backend teaches the messaging protocol to each canonical Bot Chat when
+`agent.bot_mode_protocol` is enabled. The documented default is on:
+
+```yaml
+agent:
+  bot_mode_protocol: true
+```
+
+Only canonical Bot Chats receive that protocol section. Regular sessions and
+`SOUL.md` remain untouched.
+
+## `peer add|list|dm|remove`
+
+For Bot-to-bot DMs across machines, the official CLI reference defines:
+
+```bash
+hermes peer add <name> --url http://host:port --key <API_SERVER_KEY>
+hermes peer list
+hermes peer dm <peer>[/<agent>] "message"
+hermes peer remove <name>
+```
+
+A peer is another Hermes gateway running the `api_server` platform. `peer dm`
+delivers to the remote agent's canonical Bot Chat, runs one agent turn, and
+prints the reply. The peer URL and name live in `config.yaml`; the key belongs
+in the private environment file as `HERMES_PEER_<NAME>_KEY`. Never print or
+publish the key.
+
+Do not set up a peer without an explicit machine, URL, credential, and
+network-scope request. Do not confuse a peer with a desktop Connections entry.
+
+## `verify <bot>`
+
+Run the smallest checks that prove the requested state:
+
+```bash
+hermes profile list
+hermes -p <bot> chat
+hermes cron list
+```
+
+Then check the actual destination: Bot Chat history for a local message,
+`hermes peer dm` output for a peer message, or the desktop roster for a group
+or identity change. A profile listing alone does not prove delivery.
+
+Report **unproven—not absent** when the requested runtime, delivery, device, or
+connection evidence is missing.
+
+## `disable`
+
+Bot Mode is a bundled desktop plugin. Disable it in **Settings → Plugins →
+Bots**. The docs state that profiles, sessions, and cron jobs remain intact;
+disabling the UI does not delete the underlying profile data.
 
 ## Common mistakes
 
-- Editing the wrong profile directory. Always confirm the profile name before editing files.
-- Forgetting the `[bot:<name>]` namespace. Cron jobs without it still run, but Bot Mode may not associate them with the bot.
-- Assuming bot chats behave like regular sessions. Bot Chats keep history across `/compact`; regular sessions allow `/new`.
-- Expecting live interrupt. Bot-to-bot delivery happens on next run, not mid-conversation.
+- Editing the wrong profile directory. Confirm the profile name first.
+- Treating Bot Mode as a new backend primitive. A Bot is a profile.
+- Forgetting the `[bot:<name>]` routine namespace.
+- Assuming Bot Chats behave like regular sessions. Canonical Bot Chats are
+  persistent.
+- Claiming live interrupt. Bot-to-bot delivery is per-invocation.
+- Exposing `.env` keys, API server keys, home paths, or private machine names.
+- Creating a replacement bot, bus, daemon, schedule, or control plane.
+
+## References
+
+- Official Nous/Hermes Bot Mode guide: `user-guide/bot-mode.md`
+- Official Nous/Hermes desktop guide: `user-guide/desktop.md`
+- Official CLI reference: `reference/cli-commands.md`
+- Official cron guide: `user-guide/features/cron.md`
+- Public docs: https://hermes-agent.nousresearch.com/docs

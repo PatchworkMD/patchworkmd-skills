@@ -1,7 +1,17 @@
 # Hermes Bot Manager
 
-Release candidate for a PatchworkMD skill that manages Hermes bot profiles, routines, groups, Bot Chat, and multi-machine roster entries.
+PatchworkMD release of a Hermes-first skill for managing Bot Mode profiles,
+routines, groups, Bot Chat, and cross-machine peers.
 
-The skill documents CLI parity checks for profile existence, bot chat access, cron routine names, and routine delivery. It is Hermes-first. Portability to other coding agents is not claimed or tested here.
+## This revision
 
-Status: READY FOR REVIEW, NOT CLEARED FOR PUBLICATION.
+- Adds `/bot-manager` routing modes for overview, create, inspect, routine,
+  group, message, peer, verify, and disable.
+- Grounds the workflow in the official Nous/Hermes Bot Mode, Desktop, CLI, and
+  Cron documentation.
+- Adds `references/nous-bot-mode.md` with source links and quoted terminology.
+- Keeps the public package attributed to PatchworkMD.
+
+This skill does not add new Hermes core commands. Its subcommands are routing
+vocabulary for the skill; the commands it invokes are existing Hermes CLI or
+desktop operations.
