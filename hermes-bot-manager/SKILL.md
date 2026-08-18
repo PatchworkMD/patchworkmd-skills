@@ -1,6 +1,6 @@
 ---
 name: hermes-bot-manager
-description: Use when managing Hermes Bot Mode, profiles, routines, groups, or Bot Chat.
+description: Manage Hermes Bot Mode profiles, routines, and groups.
 version: 1.1.0
 author: PatchworkMD
 license: MIT
@@ -12,8 +12,8 @@ tags:
   - cron
   - desktop
 related_skills:
-  - austin-smart-model-router
-  - active-skill-update
+  - hermes-skill-lifecycle
+  - skill-hub-verification
 ---
 
 # Hermes Bot Manager
@@ -26,6 +26,24 @@ Hermes profiles into a roster of named Bots.”** It also says: **“There is no
 new primitive to learn: a Bot is a Hermes profile.”** Bot Mode is a UI over the
 profile primitive. Use the profile, chat, cron, and peer commands that already
 exist instead of creating replacement state.
+
+## When to Use
+
+Use this skill when a user needs to create, inspect, or operate a Hermes Bot
+Mode profile, routine, group, Bot Chat, or cross-machine peer.
+
+## Prerequisites
+
+This skill uses the existing Hermes CLI, desktop Bot Mode, and the `terminal`
+tool. It has no external package or API-key dependency. Peer operations require
+a user-supplied gateway URL and private API-server key; never request or print
+that key in chat.
+
+## How to Run
+
+Start with one of the routing modes below. These are skill modes, not new
+Hermes CLI commands. Use the official Hermes commands shown in each mode, then
+run `verify` against the actual destination.
 
 ## Official documentation
 
@@ -42,11 +60,11 @@ The docs state that Bot Mode ships built into the desktop app and is on by
 default. It does not require a separate Bot Mode install. This skill adds an
 operator workflow and command vocabulary; it does not patch Hermes core.
 
-## Skill subcommands
+## Quick Reference
 
-These are routing modes for this skill. They are not new Hermes CLI commands.
-When a user starts with one, perform that slice and verify the result before
-moving to another.
+These routing modes are the supported entry points for this skill. When a user
+starts with one, perform that slice and verify the result before moving to
+another.
 
 ```text
 /bot-manager overview [bot]
