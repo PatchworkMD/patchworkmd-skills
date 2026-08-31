@@ -1,0 +1,61 @@
+{
+  "name": "patchworkmd-skills",
+  "owner": {
+    "name": "PatchworkMD"
+  },
+  "metadata": {
+    "description": "Open-source PatchworkMD skills: deslop, ponytail, and the rest of the collection. MIT."
+  },
+  "plugins": [
+    {
+      "name": "deslop",
+      "source": "deslop",
+      "description": "Kill AI tells in prose",
+      "version": "1.0.0",
+      "license": "MIT"
+    },
+    {
+      "name": "ponytail",
+      "source": "ponytail",
+      "description": "YAGNI ladder: skip / reuse / stdlib / one line / then min code",
+      "version": "1.0.0",
+      "license": "MIT"
+    },
+    {
+      "name": "addictive-development-skill",
+      "source": "addictive-development-skill",
+      "description": "Make productive action compelling through ethical completion loops",
+      "license": "MIT"
+    },
+    {
+      "name": "ethical-task-engagement",
+      "source": "ethical-task-engagement",
+      "description": "Small reusable completion-loop patterns",
+      "license": "MIT"
+    },
+    {
+      "name": "hermes-bot-manager",
+      "source": "hermes-bot-manager",
+      "description": "Manage Hermes bots, routines, groups, and Bot Chat",
+      "license": "MIT"
+    },
+    {
+      "name": "patchworkmd-skill-release",
+      "source": "patchworkmd-skill-release",
+      "description": "Safe packaging and provenance workflow for skill releases",
+      "license": "MIT"
+    },
+    {
+      "name": "record-replay",
+      "source": "record-replay",
+      "description": "Hermes/Codex record-and-replay behavior",
+      "license": "MIT"
+    },
+    {
+      "name": "whiteboard",
+      "source": "whiteboard",
+      "description": "Local-first whiteboard explainer pipeline",
+      "license": "MIT"
+    }
+  ]
+}
