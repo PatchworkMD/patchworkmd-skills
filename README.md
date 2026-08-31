@@ -2,6 +2,10 @@
 
 Open-source skill collection from PatchworkMD. MIT licensed.
 
+## Install
+
+This is a Cursor multi-plugin repo: root `.cursor-plugin/marketplace.json` plus sibling skill folders at the repo root (`deslop`, `ponytail`, and the rest). Each folder is a single-skill plugin (`SKILL.md` and `.cursor-plugin/plugin.json`). Add this GitHub repository as a plugin source in Cursor to install skills from the collection.
+
 ## Candidates
 
 | Skill | Purpose |
