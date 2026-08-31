@@ -2,6 +2,10 @@
 
 Open-source skill collection from PatchworkMD. MIT licensed.
 
+## Install
+
+This is a Cursor multi-plugin repo: root `.cursor-plugin/marketplace.json` plus sibling skill folders at the repo root (`deslop`, `ponytail`, and the rest). Each folder is a single-skill plugin (`SKILL.md` and `.cursor-plugin/plugin.json`). Add this GitHub repository as a plugin source in Cursor to install skills from the collection.
+
 ## Candidates
 
 | Skill | Purpose |
@@ -12,6 +16,8 @@ Open-source skill collection from PatchworkMD. MIT licensed.
 | `record-replay` | Hermes/Codex record-and-replay behavior |
 | `whiteboard` | Local-first whiteboard explainer pipeline |
 | `hermes-bot-manager` | Manage Hermes bots, routines, groups, and Bot Chat |
+| `deslop` | Kill AI tells in prose (throat-clearing, binary contrast, delve/quietly) |
+| `ponytail` | YAGNI ladder: skip / reuse / stdlib / platform / one line / then min code |
 
 ## License
 

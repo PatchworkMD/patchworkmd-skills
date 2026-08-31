@@ -1,0 +1,14 @@
+{
+  "name": "ethical-task-engagement",
+  "version": "1.0.0",
+  "description": "Small reusable completion-loop patterns",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "completion-loops",
+    "patterns",
+    "engagement"
+  ]
+}

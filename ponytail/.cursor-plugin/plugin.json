@@ -1,0 +1,14 @@
+{
+  "name": "ponytail",
+  "version": "1.0.0",
+  "description": "YAGNI smallest code that ships. Use on coding tasks.",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "yagni",
+    "simplicity",
+    "code"
+  ]
+}

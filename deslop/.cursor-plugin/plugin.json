@@ -1,0 +1,14 @@
+{
+  "name": "deslop",
+  "version": "1.0.0",
+  "description": "Kill AI tells in prose. Use when writing, drafting, editing, or reviewing.",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "deslop",
+    "prose"
+  ]
+}

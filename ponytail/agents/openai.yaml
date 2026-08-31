@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ponytail"
+  short_description: "YAGNI smallest code that ships"
+  default_prompt: "Use $ponytail on coding tasks so you stop at the first rung that holds."

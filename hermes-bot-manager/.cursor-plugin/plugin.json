@@ -1,0 +1,14 @@
+{
+  "name": "hermes-bot-manager",
+  "version": "1.0.0",
+  "description": "Manage Hermes bots, routines, groups, and Bot Chat",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "hermes",
+    "bots",
+    "routines"
+  ]
+}

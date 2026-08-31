@@ -1,0 +1,14 @@
+{
+  "name": "record-replay",
+  "version": "1.0.0",
+  "description": "Hermes/Codex record-and-replay behavior",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "hermes",
+    "codex",
+    "replay"
+  ]
+}
