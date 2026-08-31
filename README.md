@@ -12,6 +12,8 @@ Open-source skill collection from PatchworkMD. MIT licensed.
 | `record-replay` | Hermes/Codex record-and-replay behavior |
 | `whiteboard` | Local-first whiteboard explainer pipeline |
 | `hermes-bot-manager` | Manage Hermes bots, routines, groups, and Bot Chat |
+| `deslop` | Kill AI tells in prose (throat-clearing, binary contrast, delve/quietly) |
+| `ponytail` | YAGNI ladder: skip / reuse / stdlib / platform / one line / then min code |
 
 ## License
 
