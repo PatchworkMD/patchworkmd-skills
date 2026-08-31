@@ -1,0 +1,14 @@
+{
+  "name": "addictive-development-skill",
+  "version": "1.0.0",
+  "description": "Make productive action compelling through ethical completion loops",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "completion-loops",
+    "productivity",
+    "ethics"
+  ]
+}
