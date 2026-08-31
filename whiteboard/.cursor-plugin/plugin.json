@@ -1,0 +1,14 @@
+{
+  "name": "whiteboard",
+  "version": "1.0.0",
+  "description": "Local-first whiteboard explainer pipeline",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "whiteboard",
+    "explainer",
+    "local-first"
+  ]
+}
