@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deslop"
+  short_description: "Kill AI tells in prose"
+  default_prompt: "Use $deslop when writing or reviewing prose to strip AI slop."
