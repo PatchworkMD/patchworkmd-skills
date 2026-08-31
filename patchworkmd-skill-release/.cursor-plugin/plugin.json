@@ -1,0 +1,14 @@
+{
+  "name": "patchworkmd-skill-release",
+  "version": "1.0.0",
+  "description": "Safe packaging and provenance workflow for skill releases",
+  "author": {
+    "name": "PatchworkMD"
+  },
+  "license": "MIT",
+  "keywords": [
+    "release",
+    "packaging",
+    "provenance"
+  ]
+}
